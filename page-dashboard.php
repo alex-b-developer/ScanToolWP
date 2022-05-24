@@ -13,6 +13,7 @@
 
 $all_themes = wp_get_themes();
 
+foreach ($all_themes as $theme) {
   if ($theme->get('Name') == get_current_theme()){
   	echo "<strong>" . $theme->get('Name'). "</strong> - " ;
   }else{
@@ -27,11 +28,18 @@ $all_themes = wp_get_themes();
 
 <p>
 <?php 
+
+//var_dump(get_plugins());
+
 $all_plugins = get_plugins();
+
 
 foreach ($all_plugins  as $plugindata) {
 
+		//if(is_plugin_active( dirname(__FILE__,2).$plugindata['TextDomain']. "/".$plugindata['TextDomain'].".php" )){
 		echo $plugindata['Name']. " - ";
+		//echo dirname(__FILE__,2).$plugindata['TextDomain']. "/".$plugindata['TextDomain'].".php ";
+		//}
 }
 ?>
 </p>
